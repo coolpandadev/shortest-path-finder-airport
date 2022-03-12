@@ -1,0 +1,41 @@
+@import './mixins';
+.custom-select {
+	position: relative;
+	margin: 50px;
+	width: 120px;
+	.select-btn {
+		border-radius: 5px;
+		background-color: #333;
+		color: white;
+		border: none;
+		padding: 4px 8px;
+		width: 100%;
+	}
+	.options-container {
+		z-index: 1;
+		position: absolute;
+		display: flex;
+		width: 100%;
+		background: #333;
+		@include scrollbars(0, pink, red);
+		border-radius: 5px;
+		margin-top: 10px;
+		// display: none;
+		flex-direction: column;
+		// flex-wrap: wrap;
+		overflow: hidden;
+		overflow-y: scroll;
+		height: 100px;
+	}
+	.option {
+		width: 100%;
+		background-color: transparent;
+		color: white;
+		border: none;
+		text-align: center;
+		&:hover {
+			background-color: #555;
+			color: #111;
+		}
+	}
+}

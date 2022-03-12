@@ -22,12 +22,3 @@
 	text-align: center;
 	margin-bottom: 20px;
 }
-.select {
-	width: 60px;
-	margin-right: 10px;
-	color: white;
-	background-color: #333;
-	&__option:hover {
-		box-shadow: 0 0 10px 100px #adc6cf inset;
-	}
-}
