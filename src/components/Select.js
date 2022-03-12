@@ -14,7 +14,7 @@ const Select = ({ options, onClick, currentAirport }) => {
 			<div className='options-container' style={showDropDownMenu ? { display: 'flex' } : { display: 'none' }}>
 				{options.map(option => {
 					return (
-						<p
+						<button
 							key={option}
 							className='option'
 							onClick={e => {
@@ -22,7 +22,7 @@ const Select = ({ options, onClick, currentAirport }) => {
 								toggleDropDownMenu()
 							}}>
 							{option}
-						</p>
+						</button>
 					)
 				})}
 			</div>

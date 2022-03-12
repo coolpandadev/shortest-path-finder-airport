@@ -1,9 +1,12 @@
 @import './mixins';
+button {
+	cursor: pointer;
+}
 .custom-select {
 	position: relative;
-	margin: 10px;
 	margin-top: 0;
-	width: 100%;
+	margin-bottom: 10px;
+	width: 130px;
 	.select-btn {
 		border-radius: 5px;
 		background-color: #333;
@@ -34,6 +37,7 @@
 		color: white;
 		border: none;
 		text-align: center;
+		padding: 2px 4px;
 		&:hover {
 			background-color: #555;
 			color: #111;
