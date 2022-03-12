@@ -17,15 +17,19 @@ function App() {
 		setPath(bfs(startLoc, endLoc))
 	}, [startLoc, endLoc])
 
+	const paragraphDisplay = startLoc !== undefined && endLoc !== undefined ? { display: 'block' } : { display: 'none' }
+
 	return (
 		<div className='container'>
 			<h1 className='header'>Shortest Path Finder</h1>
 
-			<Select options={airports} onClick={submitStartAirportChange} currentAirport={startLoc} />
-			<Select options={airports} onClick={submitEndAirportChange} currentAirport={endLoc} />
+			<div className='select-container'>
+				<Select options={airports} onClick={submitStartAirportChange} currentAirport={startLoc} />
+				<Select options={airports} onClick={submitEndAirportChange} currentAirport={endLoc} />
+			</div>
 
-			<p>{`Najszybsza droga z lotniska ${startLoc} do lotniska ${endLoc} to:  `}</p>
-			<p>{path}</p>
+			<p style={paragraphDisplay}>{`Najszybsza droga z lotniska ${startLoc} do lotniska ${endLoc} to:  `}</p>
+			<p style={paragraphDisplay}>{path}</p>
 		</div>
 	)
 }

@@ -7,7 +7,7 @@
 }
 
 .container {
-	max-width: 500px;
+	max-width: 360px;
 	margin: 30px auto;
 	// overflow: auto;
 	min-height: 300px;
@@ -21,4 +21,8 @@
 	// width: 100%;
 	text-align: center;
 	margin-bottom: 20px;
+}
+.select-container {
+	width: 100%;
+	display: flex;
 }
