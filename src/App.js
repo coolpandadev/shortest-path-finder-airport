@@ -14,8 +14,8 @@ function App() {
 		setEndLoc(e.target.textContent)
 	}
 	useEffect(() => {
-		let pathToDisplay = bfs(startLoc, endLoc)
 		// console.log(typeof pathToDisplay)
+		let pathToDisplay = bfs(startLoc, endLoc)
 		if (typeof pathToDisplay !== 'string' && pathToDisplay !== undefined) {
 			for (let i = 0; i < pathToDisplay.length - 1; i++) {
 				pathToDisplay[i] += ' ==> '

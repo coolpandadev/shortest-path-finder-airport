@@ -1,18 +1,29 @@
 import '../sass/custom-select.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
-import { Spring } from 'react-spring'
+import { motion } from 'framer-motion'
+
 const Select = ({ options, onClick, currentAirport }) => {
-	const [showDropDownMenu, setShowDropDownMenu] = useState(false)
+	const [showDropDownMenu, setShowDropDownMenu] = useState('hidden')
 	const toggleDropDownMenu = () => {
-		setShowDropDownMenu(!showDropDownMenu)
+		showDropDownMenu === 'hidden' ? setShowDropDownMenu('visible') : setShowDropDownMenu('hidden')
+	}
+
+	const variants = {
+		visible: { scaleY: 1, originY: 0 },
+		hidden: { scaleY: 0 },
 	}
 	return (
 		<div className='custom-select'>
 			<button className='select-btn' onClick={toggleDropDownMenu}>
 				{currentAirport || 'Wybierz lotnisko'}
 			</button>
-			<div className='options-container' style={showDropDownMenu ? { display: 'flex' } : { display: 'none' }}>
+			<motion.div
+				className='options-container'
+				initial='hidden'
+				animate={showDropDownMenu}
+				variants={variants}
+				transition={{ type: 'tween', duration: 0.2 }}>
 				{options.map(option => {
 					return (
 						<button
@@ -26,7 +37,7 @@ const Select = ({ options, onClick, currentAirport }) => {
 						</button>
 					)
 				})}
-			</div>
+			</motion.div>
 		</div>
 	)
 }
