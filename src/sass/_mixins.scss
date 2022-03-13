@@ -7,15 +7,18 @@
 
 	&::-webkit-scrollbar-thumb {
 		background: $foreground-color;
+		border-radius: 5px;
 	}
 
 	&::-webkit-scrollbar-track {
 		background: $background-color;
+		border-radius: 5px;
 	}
 
 	// For Internet Explorer
 	& {
 		scrollbar-face-color: $foreground-color;
 		scrollbar-track-color: $background-color;
+		border-radius: 5px;
 	}
 }

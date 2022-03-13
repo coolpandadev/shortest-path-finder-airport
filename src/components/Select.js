@@ -9,32 +9,38 @@ const Select = ({ options, onClick, currentAirport }) => {
 		showDropDownMenu === 'hidden' ? setShowDropDownMenu('visible') : setShowDropDownMenu('hidden')
 	}
 
-	const variants = {
+	const dropDownVariants = {
 		visible: { scaleY: 1, originY: 0 },
 		hidden: { scaleY: 0 },
 	}
 	return (
 		<div className='custom-select'>
-			<button className='select-btn' onClick={toggleDropDownMenu}>
+			<motion.button
+				className='select-btn'
+				onClick={toggleDropDownMenu}
+				whileHover={{ backgroundColor: '#555' }}
+				transition={{ duration: 0.2 }}>
 				{currentAirport || 'Wybierz lotnisko'}
-			</button>
+			</motion.button>
 			<motion.div
 				className='options-container'
 				initial='hidden'
 				animate={showDropDownMenu}
-				variants={variants}
+				variants={dropDownVariants}
 				transition={{ type: 'tween', duration: 0.2 }}>
 				{options.map(option => {
 					return (
-						<button
+						<motion.button
 							key={option}
 							className='option'
+							whileHover={{ backgroundColor: '#555' }}
+							transition={{ duration: 0.2 }}
 							onClick={e => {
 								onClick(e)
 								toggleDropDownMenu()
 							}}>
 							{option}
-						</button>
+						</motion.button>
 					)
 				})}
 			</motion.div>
