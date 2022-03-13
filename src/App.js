@@ -33,12 +33,12 @@ function App() {
 				<Select options={airports} onClick={submitEndAirportChange} currentAirport={endLoc} />
 			</div>
 
-			<motion.p className='p-info'>
+			<motion.p >
 				{startLoc !== undefined && endLoc !== undefined
 					? `The shortest path from airport ${startLoc} to airport ${endLoc} is:  `
 					: ''}
 			</motion.p>
-			<p>{path === '' ? "You dont't need to travel anywhere, you are arleady here." : path}</p>
+			<p className='p-info'>{path === '' ? "You dont't need to travel anywhere, you are arleady here." : path}</p>
 			<RouteDisplay path={path} />
 		</div>
 	)
