@@ -91,15 +91,17 @@ const getAPath = visited => {
 		}
 		if (isPath === false) path.splice(i - 1, 1) //jeśli nie jest to go usuwam
 	}
-	return path
+	let pathAsString = ''
+	path.forEach(element => {
+		pathAsString += element + ' '
+	})
+	return pathAsString
 }
 
 //Zmodywikowana funkcja przeszukiwania wszerz (z ang. Breadth-first Search (BFS))
 //zwraca kolekcję lotnisk odwiedzonych przez algorytm z punktu startowego do punktu końcowego
 function bfs(start, end) {
 	const visited = new Set() //odwiedzone lotniska przez graf.
-	if (start === end) return 'Nie musisz nigdzie podróżować, jesteś na miejscu!'
-
 	const queue = [start] //kolejka lotnisk do sprawdzenia
 	while (queue.length > 0) {
 		const airport = queue.shift() // pobieram pierwsze lotnisko z zkolejki
