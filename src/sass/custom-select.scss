@@ -21,12 +21,10 @@ button {
 		display: flex;
 		width: 100%;
 		background: #333;
-		@include scrollbars(0, pink, red);
+		@include scrollbars(4px, #555, #333);
 		border-radius: 5px;
 		margin-top: 10px;
-		// display: none;
 		flex-direction: column;
-		// flex-wrap: wrap;
 		overflow: hidden;
 		overflow-y: scroll;
 		height: 100px;

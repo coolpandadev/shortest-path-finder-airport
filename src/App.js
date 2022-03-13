@@ -14,7 +14,14 @@ function App() {
 		setEndLoc(e.target.textContent)
 	}
 	useEffect(() => {
-		setPath(bfs(startLoc, endLoc))
+		let pathToDisplay = bfs(startLoc, endLoc)
+		// console.log(typeof pathToDisplay)
+		if (typeof pathToDisplay !== 'string' && pathToDisplay !== undefined) {
+			for (let i = 0; i < pathToDisplay.length - 1; i++) {
+				pathToDisplay[i] += ' ==> '
+			}
+		}
+		setPath(pathToDisplay)
 	}, [startLoc, endLoc])
 
 	const paragraphDisplay = startLoc !== undefined && endLoc !== undefined ? { display: 'block' } : { display: 'none' }
@@ -28,7 +35,9 @@ function App() {
 				<Select options={airports} onClick={submitEndAirportChange} currentAirport={endLoc} />
 			</div>
 
-			<p style={paragraphDisplay}>{`Najszybsza droga z lotniska ${startLoc} do lotniska ${endLoc} to:  `}</p>
+			<p
+				className='p-info'
+				style={paragraphDisplay}>{`Najszybsza droga z lotniska ${startLoc} do lotniska ${endLoc} to:  `}</p>
 			<p style={paragraphDisplay}>{path}</p>
 		</div>
 	)

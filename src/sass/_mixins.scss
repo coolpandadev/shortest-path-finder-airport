@@ -5,17 +5,17 @@
 		height: $size;
 	}
 
-	// &::-webkit-scrollbar-thumb {
-	// 	background: $foreground-color;
-	// }
+	&::-webkit-scrollbar-thumb {
+		background: $foreground-color;
+	}
 
-	// &::-webkit-scrollbar-track {
-	// 	background: $background-color;
-	// }
+	&::-webkit-scrollbar-track {
+		background: $background-color;
+	}
 
-	// // For Internet Explorer
-	// & {
-	// 	scrollbar-face-color: $foreground-color;
-	// 	scrollbar-track-color: $background-color;
-	// }
+	// For Internet Explorer
+	& {
+		scrollbar-face-color: $foreground-color;
+		scrollbar-track-color: $background-color;
+	}
 }
