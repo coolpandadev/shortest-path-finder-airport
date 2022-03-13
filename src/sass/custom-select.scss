@@ -12,7 +12,7 @@ button {
 		background-color: #333;
 		color: white;
 		border: none;
-		padding: 4px 8px;
+		padding: 8px 16px;
 		width: 100%;
 	}
 	.options-container {
@@ -27,7 +27,7 @@ button {
 		flex-direction: column;
 		overflow: hidden;
 		overflow-y: scroll;
-		height: 100px;
+		height: 150px;
 	}
 	.option {
 		width: 100%;
@@ -35,6 +35,44 @@ button {
 		color: white;
 		border: none;
 		text-align: center;
-		padding: 2px 4px;
+		padding: 8px 16px;
+		border-bottom: 1px solid #888;
+	}
+}
+
+@media (min-width: 768px) {
+	.custom-select {
+		width: 200px;
+		.select-btn {
+			border-radius: 10px;
+			padding: 10px 16px;
+			width: 100%;
+			font-size: 18px;
+		}
+		.options-container {
+			height: 200px;
+			@include scrollbars(8px, #555, #333);
+		}
+		.option {
+			font-size: 16px;
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.custom-select {
+		width: 250px;
+		.select-btn {
+			border-radius: 10px;
+			padding: 15px 20px;
+			width: 100%;
+			font-size: 24px;
+		}
+		.options-container {
+			height: 200px;
+			@include scrollbars(10px, #555, #333);
+		}
+		.option {
+			font-size: 18px;
+		}
 	}
 }

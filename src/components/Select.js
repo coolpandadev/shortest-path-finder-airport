@@ -1,6 +1,5 @@
 import '../sass/custom-select.scss'
-import { useState, useEffect } from 'react'
-import React from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const Select = ({ options, onClick, currentAirport }) => {
@@ -20,7 +19,7 @@ const Select = ({ options, onClick, currentAirport }) => {
 				onClick={toggleDropDownMenu}
 				whileHover={{ backgroundColor: '#555' }}
 				transition={{ duration: 0.2 }}>
-				{currentAirport || 'Wybierz lotnisko'}
+				{currentAirport || 'Choose the airport'}
 			</motion.button>
 			<motion.div
 				className='options-container'

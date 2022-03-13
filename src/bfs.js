@@ -54,8 +54,6 @@ const routes = [
 	['STN', 'DUB'],
 	['STN', 'KEF'],
 ]
-let startLocation = 'EDI'
-let endLocation = 'GLA'
 
 //lista sąsiedstwa
 const adjacencyList = new Map()
