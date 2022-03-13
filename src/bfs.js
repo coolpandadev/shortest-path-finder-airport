@@ -101,6 +101,7 @@ const getAPath = visited => {
 //Zmodywikowana funkcja przeszukiwania wszerz (z ang. Breadth-first Search (BFS))
 //zwraca kolekcję lotnisk odwiedzonych przez algorytm z punktu startowego do punktu końcowego
 function bfs(start, end) {
+	if (start === end) return start
 	const visited = new Set() //odwiedzone lotniska przez graf.
 	const queue = [start] //kolejka lotnisk do sprawdzenia
 	while (queue.length > 0) {

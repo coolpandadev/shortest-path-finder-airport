@@ -1,5 +1,6 @@
 import './App.scss'
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import Select from './components/Select'
 import RouteDisplay from './components/RouteDisplay'
 import { airports, bfs } from './bfs'
@@ -7,7 +8,6 @@ function App() {
 	const [startLoc, setStartLoc] = useState()
 	const [endLoc, setEndLoc] = useState()
 	const [path, setPath] = useState()
-
 	const submitStartAirportChange = e => {
 		setStartLoc(e.target.textContent)
 	}
@@ -15,19 +15,14 @@ function App() {
 		setEndLoc(e.target.textContent)
 	}
 	useEffect(() => {
-		// console.log(typeof pathToDisplay)
-		// console.log(...bfs(startLoc, endLoc))
-		let pathToDisplay = bfs(startLoc, endLoc)
-		// if (typeof pathToDisplay !== 'string' && pathToDisplay !== undefined) {
-		// 	for (let i = 0; i < pathToDisplay.length - 1; i++) {
-		// 		pathToDisplay[i] += ' ==> '
-		// 	}
-		// }
-		setPath(pathToDisplay)
-		console.log(path)
+		if (startLoc !== undefined && endLoc !== undefined) {
+			if (startLoc === endLoc) {
+				setPath('')
+			} else {
+				setPath(bfs(startLoc, endLoc))
+			}
+		}
 	}, [startLoc, endLoc])
-
-	const paragraphDisplay = startLoc !== undefined && endLoc !== undefined ? { display: 'block' } : { display: 'none' }
 
 	return (
 		<div className='container'>
@@ -38,10 +33,12 @@ function App() {
 				<Select options={airports} onClick={submitEndAirportChange} currentAirport={endLoc} />
 			</div>
 
-			<p
-				className='p-info'
-				style={paragraphDisplay}>{`Najszybsza droga z lotniska ${startLoc} do lotniska ${endLoc} to:  `}</p>
-			<p style={paragraphDisplay}>{path}</p>
+			<motion.p className='p-info'>
+				{startLoc !== undefined && endLoc !== undefined
+					? `The shortest path from airport ${startLoc} to airport ${endLoc} is:  `
+					: ''}
+			</motion.p>
+			<p>{path === '' ? "You dont't need to travel anywhere, you are arleady here." : path}</p>
 			<RouteDisplay path={path} />
 		</div>
 	)
